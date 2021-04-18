@@ -1,0 +1,52 @@
+---
+layout: default
+title: Overview
+overview: true
+---
+      <div class='jumbotron'>
+        <h1>CBOR</h1>
+        <h2>RFC 8949 Concise Binary Object Representation</h2>
+        <p class='lead'>“The Concise Binary Object Representation (CBOR) is a data format whose design goals include the possibility of extremely small code size, fairly small message size, and extensibility without the need for version negotiation.”</p>
+      </div>
+      <hr>
+      <div class='row-fluid'>
+        <div class='span4'>
+          <h2>JSON data model</h2>
+          <p>
+            CBOR is based on the wildly successful JSON data model: numbers, strings, arrays, maps (called objects in JSON), and a few values such as false, true, and null.
+          </p>
+          <h3>No Schema needed</h3>
+          <p>
+            One of the major practical wins of JSON is that successful data interchange is possible without casting a schema in concrete.
+            This works much better in a world where both ends of a communication relationship may be evolving at high speed.
+          </p>
+        </div>
+        <div class='span4'>
+          <h2>Embracing binary</h2>
+          <p>
+            Some applications that would like to use JSON need to transport binary data, such as encryption keys, graphic data, or sensor values.
+            In JSON, these data need to be encoded (usually in base64 format), adding complexity and bulk.
+          </p>
+          <h3>Concise encoding</h3>
+          <p>
+            Some applications also benefit from CBOR itself being encoded in binary.  This saves bulk and allows faster processing.
+            One of the major motivators for the development of CBOR was the Internet of Things, which will include very simple, inexpensive nodes where this counts.
+          </p>
+        </div>
+        <div class='span4'>
+          <h2>Stable format</h2>
+          <p>
+            CBOR is defined in an Internet Standard,
+            <a href='/spec.html'>RFC 8949.</a>
+            The format has been designed to be stable for decades.
+          </p>
+          <h3>Extensible</h3>
+          <p>
+            To be able to grow with its applications and to incorporate future developments, a format specification needs to be extensible.
+            CBOR defines
+            <strong>tags</strong>
+            as a mechanism to identify data that warrants additional information beyond the basic data model.
+            Both future RFCs and third parties can define tags, so innovation is “permissionless” but can still be coordinated.
+          </p>
+        </div>
+      </div>
