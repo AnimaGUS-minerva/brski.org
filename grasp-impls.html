@@ -10,7 +10,30 @@ title: GRASP Implementations
           <br>
         </p>
         <h2>GRASP talks and tutorials</h2>
-        <ul>
+
+        <h3>GRASP Prefix Management Demonstration</h3>
+
+GRASP, the GeneRic Autonomic Signaling Protocol, is specified in [RFC8990](https://www.rfc-editor.org/rfc/rfc8990.html), and an API is specified in [RFC8991](https://www.rfc-editor.org/rfc/rfc8991.html). Here's a [general introduction to GRASP](https://github.com/becarpenter/graspy/blob/master/GRASP-intro.pdf). We have every intention of writing a longer tutorial, but it hasn't happened yet.
+
+A fully designed use case for GRASP is documented in
+[RFC8992](https://www.rfc-editor.org/rfc/rfc8992.html).
+It covers a network management application that could apply to a local
+Internet Service Provider (ISP) or to a large, multi-site enterprise
+        network.
+        Such operators need to manage IP address space and distribute blocks of addresses (i.e., address prefixes) to routers near the edges of their network. In turn, those routers delegate such prefixes to customers or first-hop routers that require them. The RFC defines a GRASP "objective" that allows address space management to occur autonomically, without operator involvement beyond creating an original pool of addresses. In full deployment, this would replace or automate a conventional APAM (address planning and management tool). In early deployment, it would need to interwork with an existing APAM and in some scenarios with a RADIUS server.
+
+The following video demonstration shows a proof of concept. The terminology adopted is as follows:
+
+ - Origin Server: An autonomic service agent configured initially with two address pools (IPv4 and IPv6).
+
+ - Delegator: An autonomic service agent that initially has no address pools, but needs IP prefixes that it can delegate to (imaginary) client routers or local routers.
+
+In the demo, you will see an origin server and two delegators, running in the same computer for simplicity in making the video. In practice, there would be one origin server (associated with a Network Operations Center) and any number of delegators placed elsewhere in the ISP or enterprise network. The same Python code runs as the origin server or as a delegator, controlled by a start-up option. After the demo has been running for a while, although the origin server remains active, individual delegators may use GRASP to discover each other and negotiate a transfer of a prefix when needed. In a large and dynamic network, this will automatically optimize the distribution of available prefixes around the network: a region that is running short of prefixes can get them from region that has too many, without operator intervention.
+
+There's also [a technical write-up of the demo code](https://github.com/becarpenter/graspy/blob/master/pfxm3.pdf).
+
+[Enjoy the video here!](https://youtu.be/yJsuLICMvdk) You may want to pause the video from time to time as there is quite a lot of text to read.
+
           <li> <a href="https://youtu.be/yJsuLICMvdk">Prefix Management
               Demo</a> by Brian Carpenter</li>
         </ul>
